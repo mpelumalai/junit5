@@ -34,7 +34,9 @@ class MavenStarterTests {
 				.build() //
 				.run();
 
-		assertEquals(0, result.getExitCode(), result.toString());
+		// assertEquals(0, result.getExitCode(), result.toString());
+		assertEquals("", result.getOutput("err"));
+		assertTrue(result.getOutputLines("out").contains("[INFO] BUILD SUCCESS"));
 		assertTrue(result.getOutputLines("out").contains("[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0"));
 	}
 }
